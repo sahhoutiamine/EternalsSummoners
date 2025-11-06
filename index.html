@@ -14,6 +14,15 @@
         font-family: "Cinzel", serif;
       }
 
+      *::-webkit-scrollbar {
+        display: none;
+      }
+
+      * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
       .nav-link {
         position: relative;
         transition: all 0.3s ease;
@@ -41,34 +50,70 @@
       }
 
       .hero-bg-left {
-        left: 19%;
+        left: 15%;
         top: 12%;
         transform: translateY(-50%);
-        width: 400px;
-        height: 600px;
+        width: 500px;
+        height: 700px;
         background-image: url(images/character-right.png);
         animation: floatCenterSide 6s ease-in-out infinite;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
       }
 
       .hero-bg-center {
         left: 48%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 500px;
-        height: 700px;
+        width: 600px;
+        height: 800px;
         background-image: url(images/character-center.png);
         animation: floatCenter 5s ease-in-out infinite;
-        z-index: 2;
+        z-index: 5;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
       }
 
       .hero-bg-right {
-        right: 23%;
+        right: 18%;
         top: 15%;
         transform: translateY(-50%);
-        width: 400px;
-        height: 600px;
+        width: 500px;
+        height: 700px;
         background-image: url(images/character-left.png);
         animation: floatCenterSide 6s ease-in-out infinite;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 100%
+        );
       }
 
       /* Floating animations */
@@ -184,6 +229,191 @@
         transform: translateY(0);
       }
 
+      /* Slider Section Styles */
+      .slider-section {
+        background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+      }
+
+      .slider-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        height: 500px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide.active {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .slide-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+      }
+
+      .slide-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      /* Golden Border Frame */
+      .golden-frame {
+        position: absolute;
+        inset: 20px;
+        pointer-events: none;
+        z-index: 10;
+      }
+
+      .golden-frame::before,
+      .golden-frame::after {
+        content: "";
+        position: absolute;
+        background: linear-gradient(
+          135deg,
+          #d4af37 0%,
+          #f4e4b3 50%,
+          #d4af37 100%
+        );
+      }
+
+      /* Top and Bottom borders */
+      .golden-frame::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+      }
+
+      .golden-frame::after {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+      }
+
+      /* Corner decorations */
+      .corner {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border: 3px solid;
+        border-image: linear-gradient(
+            135deg,
+            #d4af37 0%,
+            #f4e4b3 50%,
+            #d4af37 100%
+          )
+          1;
+      }
+
+      .corner-tl {
+        top: 0;
+        left: 0;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      .corner-tr {
+        top: 0;
+        right: 0;
+        border-left: none;
+        border-bottom: none;
+      }
+
+      .corner-bl {
+        bottom: 0;
+        left: 0;
+        border-right: none;
+        border-top: none;
+      }
+
+      .corner-br {
+        bottom: 0;
+        right: 0;
+        border-left: none;
+        border-top: none;
+      }
+
+      /* Side borders */
+      .side-border-left,
+      .side-border-right {
+        position: absolute;
+        width: 3px;
+        top: 80px;
+        bottom: 80px;
+        background: linear-gradient(
+          180deg,
+          #d4af37 0%,
+          #f4e4b3 50%,
+          #d4af37 100%
+        );
+      }
+
+      .side-border-left {
+        left: 0;
+      }
+
+      .side-border-right {
+        right: 0;
+      }
+
+      /* Slider Navigation Dots */
+      .slider-dots {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 20;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.3);
+        border: 2px solid #d4af37;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: #d4af37;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+        transform: scale(1.2);
+      }
+
+      .dot:hover {
+        background: rgba(212, 175, 55, 0.6);
+      }
+
       /* Responsive adjustments */
       @media (max-width: 1024px) {
         .hero-bg-left,
@@ -195,6 +425,10 @@
         .hero-bg-center {
           width: 400px;
           height: 550px;
+        }
+
+        .slider-container {
+          height: 400px;
         }
       }
 
@@ -215,6 +449,21 @@
         .hero-title {
           font-size: 3.5rem;
         }
+
+        .slider-container {
+          height: 300px;
+        }
+
+        .corner {
+          width: 50px;
+          height: 50px;
+        }
+
+        .side-border-left,
+        .side-border-right {
+          top: 50px;
+          bottom: 50px;
+        }
       }
 
       @media (max-width: 640px) {
@@ -228,6 +477,21 @@
 
         .nav-links {
           display: none;
+        }
+
+        .slider-container {
+          height: 250px;
+        }
+
+        .corner {
+          width: 40px;
+          height: 40px;
+        }
+
+        .side-border-left,
+        .side-border-right {
+          top: 40px;
+          bottom: 40px;
         }
       }
     </style>
@@ -321,5 +585,137 @@
         </button>
       </div>
     </section>
+
+    <!-- Slider Section -->
+    <section class="slider-section py-20 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="hero-title text-4xl md:text-6xl font-bold mb-4">
+            EPIC BATTLES AWAIT
+          </h2>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Witness the legendary confrontations that will define your destiny
+          </p>
+        </div>
+
+        <div class="slider-container">
+          <div class="slider-wrapper">
+            <!-- Slide 1 -->
+            <div class="slide active" data-slide="0">
+              <div class="slide-image-wrapper">
+                <img
+                  src="images/slide-image1.png"
+                  alt="Epic Battle 1"
+                  class="slide-image"
+                />
+                <div class="golden-frame">
+                  <div class="corner corner-tl"></div>
+                  <div class="corner corner-tr"></div>
+                  <div class="corner corner-bl"></div>
+                  <div class="corner corner-br"></div>
+                  <div class="side-border-left"></div>
+                  <div class="side-border-right"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-slide="1">
+              <div class="slide-image-wrapper">
+                <img
+                  src="images/slide-image2.png"
+                  alt="Epic Battle 2"
+                  class="slide-image"
+                />
+                <div class="golden-frame">
+                  <div class="corner corner-tl"></div>
+                  <div class="corner corner-tr"></div>
+                  <div class="corner corner-bl"></div>
+                  <div class="corner corner-br"></div>
+                  <div class="side-border-left"></div>
+                  <div class="side-border-right"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" data-slide="2">
+              <div class="slide-image-wrapper">
+                <img
+                  src="images/slide-image3.png"
+                  alt="Epic Battle 3"
+                  class="slide-image"
+                />
+                <div class="golden-frame">
+                  <div class="corner corner-tl"></div>
+                  <div class="corner corner-tr"></div>
+                  <div class="corner corner-bl"></div>
+                  <div class="corner corner-br"></div>
+                  <div class="side-border-left"></div>
+                  <div class="side-border-right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Dots -->
+          <div class="slider-dots">
+            <span class="dot active" data-dot="0"></span>
+            <span class="dot" data-dot="1"></span>
+            <span class="dot" data-dot="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Slider functionality
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+      const totalSlides = slides.length;
+      let slideInterval;
+
+      function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        // Add active class to current slide and dot
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
+
+      function startSlider() {
+        slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+      }
+
+      function stopSlider() {
+        clearInterval(slideInterval);
+      }
+
+      // Dot click functionality
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentSlide = index;
+          showSlide(currentSlide);
+          stopSlider();
+          startSlider(); // Restart the timer
+        });
+      });
+
+      // Start the slider on page load
+      startSlider();
+
+      // Pause slider on hover
+      const sliderContainer = document.querySelector(".slider-container");
+      sliderContainer.addEventListener("mouseenter", stopSlider);
+      sliderContainer.addEventListener("mouseleave", startSlider);
+    </script>
   </body>
 </html>
