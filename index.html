@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elegant Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Eternals Summoners - Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Maname&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       body {
         font-family: "Cinzel", serif;
@@ -23,110 +30,6 @@
         scrollbar-width: none;
       }
 
-      .nav-link {
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      .nav-link:hover {
-        color: #d4af37;
-      }
-
-      /* Hero Section Styles */
-      .hero-section {
-        position: relative;
-        background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-      }
-
-      /* Background Images */
-      .hero-bg-left,
-      .hero-bg-center,
-      .hero-bg-right {
-        position: absolute;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: 1;
-      }
-
-      .hero-bg-left {
-        left: 15%;
-        top: 12%;
-        transform: translateY(-50%);
-        width: 500px;
-        height: 700px;
-        background-image: url(images/character-right.png);
-        animation: floatCenterSide 6s ease-in-out infinite;
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
-
-      .hero-bg-center {
-        left: 48%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 800px;
-        background-image: url(images/character-center.png);
-        animation: floatCenter 5s ease-in-out infinite;
-        z-index: 5;
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
-
-      .hero-bg-right {
-        right: 18%;
-        top: 15%;
-        transform: translateY(-50%);
-        width: 500px;
-        height: 700px;
-        background-image: url(images/character-left.png);
-        animation: floatCenterSide 6s ease-in-out infinite;
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) 75%,
-          rgba(0, 0, 0, 0) 100%
-        );
-      }
-
-      /* Floating animations */
-      @keyframes floatLeft {
-        0%,
-        100% {
-          transform: translateY(-50%) translateX(0);
-        }
-        50% {
-          transform: translateY(-50%) translateX(-20px);
-        }
-      }
-
       @keyframes floatCenter {
         0%,
         100% {
@@ -136,6 +39,7 @@
           transform: translate(-50%, -50%) translateY(-6px);
         }
       }
+
       @keyframes floatCenterSide {
         0%,
         100% {
@@ -144,32 +48,6 @@
         50% {
           transform: translateY(-6px);
         }
-      }
-
-      @keyframes floatRight {
-        0%,
-        100% {
-          transform: translateY(-50%) translateX(0);
-        }
-        50% {
-          transform: translateY(-50%) translateX(20px);
-        }
-      }
-
-      /* Hero Title */
-      .hero-title {
-        background: linear-gradient(
-          135deg,
-          #d4af37 0%,
-          #f4e4b3 50%,
-          #d4af37 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
-        letter-spacing: 0.05em;
-        animation: titleGlow 3s ease-in-out infinite;
       }
 
       @keyframes titleGlow {
@@ -182,415 +60,193 @@
         }
       }
 
-      /* Hero Subtitle */
-      .hero-subtitle {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      .animate-float-center {
+        animation: floatCenter 5s ease-in-out infinite;
       }
 
-      /* Hero Button */
-      .hero-button {
-        background: linear-gradient(135deg, #d4af37 0%, #f4e4b3 100%);
-        color: #000;
-        border: 2px solid #d4af37;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-        position: relative;
-        overflow: hidden;
+      .animate-float-center-side {
+        animation: floatCenterSide 6s ease-in-out infinite;
       }
 
-      .hero-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: left 0.5s ease;
-        z-index: 5;
-      }
-
-      .hero-button:hover::before {
-        left: 100%;
-      }
-
-      .hero-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
-      }
-
-      .hero-button:active {
-        transform: translateY(0);
-      }
-
-      /* Slider Section Styles */
-      .slider-section {
-        background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-      }
-
-      .slider-container {
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 500px;
-        margin: 0 auto;
-        overflow: hidden;
-      }
-
-      .slider-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-
-      .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .slide.active {
-        opacity: 1;
-        z-index: 2;
-      }
-
-      .slide-image-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-      }
-
-      .slide-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-      }
-
-      /* Golden Border Frame */
-      .golden-frame {
-        position: absolute;
-        inset: 20px;
-        pointer-events: none;
-        z-index: 10;
-      }
-
-      .golden-frame::before,
-      .golden-frame::after {
-        content: "";
-        position: absolute;
-        background: linear-gradient(
-          135deg,
-          #d4af37 0%,
-          #f4e4b3 50%,
-          #d4af37 100%
-        );
-      }
-
-      /* Top and Bottom borders */
-      .golden-frame::before {
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-      }
-
-      .golden-frame::after {
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-      }
-
-      /* Corner decorations */
-      .corner {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        border: 3px solid;
-        border-image: linear-gradient(
-            135deg,
-            #d4af37 0%,
-            #f4e4b3 50%,
-            #d4af37 100%
-          )
-          1;
-      }
-
-      .corner-tl {
-        top: 0;
-        left: 0;
-        border-right: none;
-        border-bottom: none;
-      }
-
-      .corner-tr {
-        top: 0;
-        right: 0;
-        border-left: none;
-        border-bottom: none;
-      }
-
-      .corner-bl {
-        bottom: 0;
-        left: 0;
-        border-right: none;
-        border-top: none;
-      }
-
-      .corner-br {
-        bottom: 0;
-        right: 0;
-        border-left: none;
-        border-top: none;
-      }
-
-      /* Side borders */
-      .side-border-left,
-      .side-border-right {
-        position: absolute;
-        width: 3px;
-        top: 80px;
-        bottom: 80px;
-        background: linear-gradient(
-          180deg,
-          #d4af37 0%,
-          #f4e4b3 50%,
-          #d4af37 100%
-        );
-      }
-
-      .side-border-left {
-        left: 0;
-      }
-
-      .side-border-right {
-        right: 0;
-      }
-
-      /* Slider Navigation Dots */
-      .slider-dots {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 12px;
-        z-index: 20;
-      }
-
-      .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: rgba(212, 175, 55, 0.3);
-        border: 2px solid #d4af37;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .dot.active {
-        background: #d4af37;
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
-        transform: scale(1.2);
-      }
-
-      .dot:hover {
-        background: rgba(212, 175, 55, 0.6);
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 1024px) {
-        .hero-bg-left,
-        .hero-bg-right {
-          width: 300px;
-          height: 450px;
-        }
-
-        .hero-bg-center {
-          width: 400px;
-          height: 550px;
-        }
-
-        .slider-container {
-          height: 400px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hero-bg-left,
-        .hero-bg-right {
-          opacity: 0.3;
-          width: 200px;
-          height: 350px;
-        }
-
-        .hero-bg-center {
-          width: 300px;
-          height: 450px;
-          opacity: 0.5;
-        }
-
-        .hero-title {
-          font-size: 3.5rem;
-        }
-
-        .slider-container {
-          height: 300px;
-        }
-
-        .corner {
-          width: 50px;
-          height: 50px;
-        }
-
-        .side-border-left,
-        .side-border-right {
-          top: 50px;
-          bottom: 50px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .slider-container {
-          height: 250px;
-        }
-
-        .corner {
-          width: 40px;
-          height: 40px;
-        }
-
-        .side-border-left,
-        .side-border-right {
-          top: 40px;
-          bottom: 40px;
-        }
+      .animate-title-glow {
+        animation: titleGlow 3s ease-in-out infinite;
       }
     </style>
   </head>
-  <body class="bg-black">
-    <nav class="bg-black border-b border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-24">
-          <!-- Logo -->
-          <div class="flex-shrink-0">
-            <img src="images/logo.png" alt="Logo" class="h-16 w-16" />
-          </div>
-          <!-- Navigation Links -->
-          <div class="nav-links flex items-center space-x-12">
-            <a
-              href="#"
-              class="nav-link text-yellow-600 text-sm font-medium tracking-wider uppercase"
-              >HOME</a
+  <body class="bg-[#070707] font-[cinzel]">
+    <!-- Navigation -->
+    <div
+      class="hidden 2xl:flex py-2 items-center justify-around fixed w-full z-50"
+    >
+      <img src="images/logo.png" alt="ETERNALS SUMMONERS logo" />
+      <nav>
+        <ul class="flex gap-20">
+          <li class="hover:scale-110 ease-in-out duration-150">
+            <a class="text-3xl text-[#C7A900]" href="#">Home</a>
+          </li>
+          <li class="hover:scale-110 ease-in-out duration-150">
+            <a class="text-3xl text-[#C7A900]" href="guide.html">Guide</a>
+          </li>
+          <li class="hover:scale-110 ease-in-out duration-150">
+            <a class="text-3xl text-[#C7A900]" href="market.html">Market</a>
+          </li>
+          <li class="hover:scale-110 ease-in-out duration-150">
+            <a class="text-3xl text-[#C7A900]" href="deck.html">Collection</a>
+          </li>
+          <li class="hover:scale-110 ease-in-out duration-150">
+            <a class="text-3xl text-[#C7A900]" href="favoris.html">Favorite</a>
+          </li>
+          <li
+            class="hover:scale-110 ease-in-out duration-150 relative cursor-pointer"
+          >
+            <img
+              class=""
+              src="images/Shopping-cart.png"
+              alt="Shopping cart icon"
+            />
+            <div
+              class="w-4 h-4 bg-[#BEA301] flex justify-center items-center rounded-full absolute -top-1 -right-1"
             >
-            <a
-              href="#"
-              class="nav-link text-yellow-600 text-sm font-medium tracking-wider uppercase"
-              >GUIDE</a
-            >
-            <a
-              href="#"
-              class="nav-link text-yellow-600 text-sm font-medium tracking-wider uppercase"
-              >MARKET</a
-            >
-            <a
-              href="#"
-              class="nav-link text-yellow-600 text-sm font-medium tracking-wider uppercase"
-              >MY DECK</a
-            >
-            <a
-              href="#"
-              class="nav-link text-yellow-600 text-sm font-medium tracking-wider uppercase"
-              >FAVORIS</a
-            >
-          </div>
-          <!-- Cart Icon -->
-          <div class="flex-shrink-0">
-            <a href="#" class="relative inline-block">
-              <svg
-                class="w-7 h-7 text-yellow-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
+              0
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <!-- Hero Section -->
     <section
-      class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black to-[#0a0a0a]"
     >
       <!-- Background Images -->
-      <div class="hero-bg-left"></div>
-      <div class="hero-bg-center"></div>
-      <div class="hero-bg-right"></div>
+      <div
+        class="absolute left-[16%] top-[60%] -translate-y-1/2 w-[500px] h-[700px] bg-contain bg-no-repeat bg-center z-2 animate-float-center-side bg-[url('images/character-right.png')] hidden md:block"
+        style="
+          mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        "
+      ></div>
+      <div
+        class="absolute left-[67%] top-[115%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[800px] bg-contain bg-no-repeat bg-center z-5 animate-float-center bg-[url('images/character-center.png')] hidden md:block"
+        style="
+          mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        "
+      ></div>
+      <div
+        class="absolute right-[18%] top-[60%] -translate-y-1/2 w-[500px] h-[700px] bg-contain bg-no-repeat bg-center z-2 animate-float-center-side bg-[url('images/character-left.png')] hidden md:block"
+        style="
+          mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        "
+      ></div>
 
       <!-- Overlay for better text readability -->
-      <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <!-- <div class="absolute inset-0 bg-black/40 z-30"></div> -->
 
       <!-- Content -->
-      <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
-        <h1 class="hero-title text-5xl md:text-8xl lg:text-8xl font-bold mb-6">
+      <div class="relative z-40 text-center px-4 max-w-5xl mt-70">
+        <h1
+          class="text-5xl md:text-8xl lg:text-8xl font-bold mb-6 animate-title-glow"
+          style="
+            background: linear-gradient(
+              135deg,
+              #d4af37 0%,
+              #f4e4b3 50%,
+              #d4af37 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.05em;
+          "
+        >
           ETERNALS SUMMONERS
         </h1>
         <p
-          class="hero-subtitle text-l md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+          class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+          style="text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8)"
         >
           Enter a world where strategy meets destiny. Summon legendary heroes,
           forge powerful decks, and dominate the battlefield in the ultimate
           card game experience.
         </p>
         <button
-          class="hero-button group relative px-12 py-5 text-lg font-semibold uppercase tracking-wider overflow-hidden"
+          class="group relative px-12 py-5 text-lg font-semibold uppercase tracking-wider overflow-hidden rounded-lg hover:-translate-y-0.5 transition-all duration-300 active:translate-y-0"
+          style="
+            background: linear-gradient(135deg, #d4af37 0%, #f4e4b3 100%);
+            color: #000;
+            border: 2px solid #d4af37;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+          "
         >
           <span class="relative z-10">Play Now</span>
+          <div
+            class="absolute top-0 -left-full w-full h-full transition-all duration-500 group-hover:left-full"
+            style="
+              background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+              );
+            "
+          ></div>
         </button>
       </div>
     </section>
 
     <!-- Slider Section -->
-    <section class="slider-section py-20 px-4">
+    <section class="py-20 px-4 bg-gradient-to-b from-black to-[#0a0a0a]">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="hero-title text-4xl md:text-6xl font-bold mb-4">
+          <h2
+            class="text-4xl md:text-6xl font-bold mb-4"
+            style="
+              background: linear-gradient(
+                135deg,
+                #d4af37 0%,
+                #f4e4b3 50%,
+                #d4af37 100%
+              );
+              -webkit-background-clip: text;
+              background-clip: text;
+              color: transparent;
+              text-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
+              letter-spacing: 0.05em;
+            "
+          >
             EPIC BATTLES AWAIT
           </h2>
           <p class="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -598,71 +254,581 @@
           </p>
         </div>
 
-        <div class="slider-container">
-          <div class="slider-wrapper">
+        <div
+          class="relative w-full max-w-[1200px] h-[500px] mx-auto overflow-hidden"
+        >
+          <div class="relative w-full h-full">
             <!-- Slide 1 -->
-            <div class="slide active" data-slide="0">
-              <div class="slide-image-wrapper">
+            <div
+              class="slide absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1500 flex items-center justify-center"
+              data-slide="0"
+            >
+              <div class="relative w-full h-full p-5">
                 <img
                   src="images/slide-image1.png"
                   alt="Epic Battle 1"
-                  class="slide-image"
+                  class="w-full h-full object-cover rounded-lg"
+                  style="box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3)"
                 />
-                <div class="golden-frame">
-                  <div class="corner corner-tl"></div>
-                  <div class="corner corner-tr"></div>
-                  <div class="corner corner-bl"></div>
-                  <div class="corner corner-br"></div>
-                  <div class="side-border-left"></div>
-                  <div class="side-border-right"></div>
+                <!-- Golden Frame -->
+                <div class="absolute inset-5 pointer-events-none z-10">
+                  <!-- Top and Bottom borders -->
+                  <div
+                    class="absolute top-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+
+                  <!-- Corner decorations -->
+                  <div
+                    class="absolute top-0 left-0 w-20 h-20 border-t-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute top-0 right-0 w-20 h-20 border-t-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 w-20 h-20 border-b-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 right-0 w-20 h-20 border-b-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+
+                  <!-- Side borders -->
+                  <div
+                    class="absolute left-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute right-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
                 </div>
               </div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="slide" data-slide="1">
-              <div class="slide-image-wrapper">
+            <div
+              class="slide absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1500 flex items-center justify-center"
+              data-slide="1"
+            >
+              <div class="relative w-full h-full p-5">
                 <img
                   src="images/slide-image2.png"
                   alt="Epic Battle 2"
-                  class="slide-image"
+                  class="w-full h-full object-cover rounded-lg"
+                  style="box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3)"
                 />
-                <div class="golden-frame">
-                  <div class="corner corner-tl"></div>
-                  <div class="corner corner-tr"></div>
-                  <div class="corner corner-bl"></div>
-                  <div class="corner corner-br"></div>
-                  <div class="side-border-left"></div>
-                  <div class="side-border-right"></div>
+                <!-- Golden Frame -->
+                <div class="absolute inset-5 pointer-events-none z-10">
+                  <!-- Top and Bottom borders -->
+                  <div
+                    class="absolute top-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+
+                  <!-- Corner decorations -->
+                  <div
+                    class="absolute top-0 left-0 w-20 h-20 border-t-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute top-0 right-0 w-20 h-20 border-t-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 w-20 h-20 border-b-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 right-0 w-20 h-20 border-b-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+
+                  <!-- Side borders -->
+                  <div
+                    class="absolute left-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute right-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
                 </div>
               </div>
             </div>
 
             <!-- Slide 3 -->
-            <div class="slide" data-slide="2">
-              <div class="slide-image-wrapper">
+            <div
+              class="slide absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-1500 flex items-center justify-center"
+              data-slide="2"
+            >
+              <div class="relative w-full h-full p-5">
                 <img
                   src="images/slide-image3.png"
                   alt="Epic Battle 3"
-                  class="slide-image"
+                  class="w-full h-full object-cover rounded-lg"
+                  style="box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3)"
                 />
-                <div class="golden-frame">
-                  <div class="corner corner-tl"></div>
-                  <div class="corner corner-tr"></div>
-                  <div class="corner corner-bl"></div>
-                  <div class="corner corner-br"></div>
-                  <div class="side-border-left"></div>
-                  <div class="side-border-right"></div>
+                <!-- Golden Frame -->
+                <div class="absolute inset-5 pointer-events-none z-10">
+                  <!-- Top and Bottom borders -->
+                  <div
+                    class="absolute top-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-[3px]"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+
+                  <!-- Corner decorations -->
+                  <div
+                    class="absolute top-0 left-0 w-20 h-20 border-t-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute top-0 right-0 w-20 h-20 border-t-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 w-20 h-20 border-b-[3px] border-l-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 right-0 w-20 h-20 border-b-[3px] border-r-[3px]"
+                    style="border-color: #d4af37"
+                  ></div>
+
+                  <!-- Side borders -->
+                  <div
+                    class="absolute left-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
+                  <div
+                    class="absolute right-0 top-20 bottom-20 w-[3px]"
+                    style="
+                      background: linear-gradient(
+                        180deg,
+                        #d4af37 0%,
+                        #f4e4b3 50%,
+                        #d4af37 100%
+                      );
+                    "
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Navigation Dots -->
-          <div class="slider-dots">
-            <span class="dot active" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
+          <div
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20"
+          >
+            <span
+              class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+              data-dot="0"
+              style="
+                background: rgba(212, 175, 55, 0.3);
+                border: 2px solid #d4af37;
+              "
+            ></span>
+            <span
+              class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+              data-dot="1"
+              style="
+                background: rgba(212, 175, 55, 0.3);
+                border: 2px solid #d4af37;
+              "
+            ></span>
+            <span
+              class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+              data-dot="2"
+              style="
+                background: rgba(212, 175, 55, 0.3);
+                border: 2px solid #d4af37;
+              "
+            ></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section
+      class="flex flex-col items-center py-20 bg-gradient-to-b from-black to-[#0a0a0a]"
+    >
+      <h1
+        class="text-4xl md:text-6xl font-bold mb-4 text-center"
+        style="
+          background: linear-gradient(
+            135deg,
+            #d4af37 0%,
+            #f4e4b3 50%,
+            #d4af37 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          text-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
+          letter-spacing: 0.05em;
+        "
+      >
+        DISCOVER OUR WORLD
+      </h1>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto text-center mb-16">
+        Collect legendary cards and build your ultimate deck
+      </p>
+
+      <div class="flex gap-5 2xl:gap-40 2xl:py-20">
+        <div
+          class="w-86 h-114 bg-black justify-center items-center relative hidden lg:flex 2xl:scale-140 hover:scale-145 ease-in-out duration-150 cursor-pointer"
+        >
+          <div
+            class="border-3 border-[#9B8400] w-79 h-109 flex flex-col items-center pt-2"
+          >
+            <div class="border-2 border-[#9B8400] w-74 h-69">
+              <img
+                class="w-73 h-68"
+                src="images/legendary-card-bg.png"
+                alt="golden glow"
+              />
+              <div
+                class="w-8 h-8 border border-[#9B8400] bg-black relative bottom-68.5 right-0.5 rotate-45"
+              >
+                <p
+                  class="font-[Maname] text-[#A38B00] text-3xl absolute -top-3 -left-1 right-3 bottom-4 -rotate-45"
+                >
+                  8
+                </p>
+              </div>
+            </div>
+            <div class="flex pt-2 relative">
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-4.5 -left-4 z-40"
+              ></div>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute top-3.5 -left-2.5"
+              ></div>
+              <p
+                class="border border-[#9B8400] border-solid text-[#9B8400] text-sm px-3 py-1 rounded-2xl"
+              >
+                Voidblade Champion
+              </p>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute -right-2.5 top-3.5"
+              ></div>
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-4.5 -right-4 z-40"
+              ></div>
+            </div>
+            <div class="flex relative items-center">
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <p class="text-lg text-[#BEA301]">LEGENDARY</p>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+            </div>
+            <p class="text-xs text-[#BEA301] -mt-2">dark Warrior</p>
+            <p
+              class="border border-[#BEA301] text-xs text-[#BEA301] px-2 rounded-xl"
+            >
+              SHADOW
+            </p>
+            <div class="flex relative">
+              <div
+                class="flex flex-col absolute -top-6.5 -left-16.5 items-center"
+              >
+                <p class="text-[#BEA301]">900 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/atk.png" alt="Attack" />
+                </div>
+              </div>
+              <p class="text-xs text-[#BEA301] pt-5">
+                "<span class="text-white">Void-forged spellbreaker</span>"
+              </p>
+              <div
+                class="flex flex-col absolute -top-6.5 -right-16.5 items-center"
+              >
+                <p class="text-[#BEA301]">1500 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/def.png" alt="Defense" />
+                </div>
+              </div>
+            </div>
+            <img
+              class="absolute scale-65 -top-16"
+              src="images/voidblade-champion.png"
+              alt="Voidblade Champion"
+            />
+            <hr
+              class="absolute border border-[#9B8400] w-74 border-solid bottom-39.5"
+            />
+          </div>
+        </div>
+        <div
+          class="w-86 h-114 bg-black flex justify-center items-center relative 2xl:scale-140 hover:scale-145 ease-in-out duration-150 cursor-pointer"
+        >
+          <div
+            class="border-3 border-[#9B8400] w-79 h-109 flex flex-col items-center pt-2"
+          >
+            <div class="border-2 border-[#9B8400] w-74 h-69">
+              <img
+                class="w-73 h-68"
+                src="images/legendary-card-bg.png"
+                alt="golden glow"
+              />
+              <div
+                class="w-8 h-8 border border-[#9B8400] bg-black relative bottom-68.5 right-0.5 rotate-45"
+              >
+                <p
+                  class="font-[Maname] text-[#A38B00] text-3xl absolute -top-3 -left-1 right-3 bottom-4 -rotate-45"
+                >
+                  9
+                </p>
+              </div>
+            </div>
+            <div class="flex pt-2 relative">
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-5 -left-4 z-40"
+              ></div>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute top-4 -left-2.5"
+              ></div>
+              <p
+                class="border border-[#9B8400] border-solid text-[#9B8400] text-base px-3 py-1 rounded-2xl"
+              >
+                Solar Titan
+              </p>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute -right-2.5 top-4"
+              ></div>
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-5 -right-4 z-40"
+              ></div>
+            </div>
+            <div class="flex relative items-center">
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <p class="text-lg text-[#BEA301]">LEGENDARY</p>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+            </div>
+            <p class="text-xs text-[#BEA301] -mt-2">DIVINE SUMMONER</p>
+            <p
+              class="border border-[#BEA301] text-xs text-[#BEA301] px-2 rounded-xl"
+            >
+              LIGHT
+            </p>
+            <div class="flex relative">
+              <div
+                class="flex flex-col absolute -top-6.5 -left-12 items-center"
+              >
+                <p class="text-[#BEA301]">1000 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/atk.png" alt="Attack" />
+                </div>
+              </div>
+              <p class="text-xs text-[#BEA301] pt-5 scale-87">
+                "<span class="text-white">Solar-born divine executioner</span>"
+              </p>
+              <div
+                class="flex flex-col absolute -top-6.5 -right-12 items-center"
+              >
+                <p class="text-[#BEA301]">2000 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/def.png" alt="Defense" />
+                </div>
+              </div>
+            </div>
+            <img
+              class="absolute scale-86 -top-2 -left-2"
+              src="images/solar-titan.png"
+              alt="Solar Titan"
+            />
+            <hr
+              class="absolute border border-[#9B8400] w-74 border-solid bottom-39.5"
+            />
+          </div>
+        </div>
+        <div
+          class="w-86 h-114 bg-black hidden lg:flex justify-center items-center relative 2xl:scale-140 hover:scale-145 ease-in-out duration-150 cursor-pointer"
+        >
+          <div
+            class="border-3 border-[#9B8400] w-79 h-109 flex flex-col items-center pt-2"
+          >
+            <div class="border-2 border-[#9B8400] w-74 h-69">
+              <img
+                class="w-73 h-68"
+                src="images/legendary-card-bg.png"
+                alt="golden glow"
+              />
+              <div
+                class="w-8 h-8 border border-[#9B8400] bg-black relative bottom-68.5 right-0.5 rotate-45"
+              >
+                <p
+                  class="font-[Maname] text-[#A38B00] text-3xl absolute -top-3 -left-1 right-3 bottom-4 -rotate-45"
+                >
+                  7
+                </p>
+              </div>
+            </div>
+            <div class="pt-2 relative flex">
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-5 -left-4 z-40"
+              ></div>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute top-4 -left-2.5"
+              ></div>
+              <p
+                class="border border-[#9B8400] border-solid text-[#9B8400] text-base px-3 py-1 rounded-2xl"
+              >
+                Infernal Herald
+              </p>
+              <div
+                class="w-4 h-4 border-2 border-[#BEA301] bg-black rotate-45 absolute -right-2.5 top-4"
+              ></div>
+              <div
+                class="w-2 h-2 border border-[#BEA301] bg-black rotate-45 absolute top-5 -right-4 z-40"
+              ></div>
+            </div>
+            <div class="flex relative items-center">
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <p class="text-lg text-[#BEA301]">LEGENDARY</p>
+              <hr class="border-0.5 border-[#BEA301] w-10" />
+              <div class="w-1.25 h-1.25 bg-[#BEA301] rotate-45"></div>
+            </div>
+            <p class="text-xs text-[#BEA301] -mt-2">Celestial Mage</p>
+            <p
+              class="border border-[#BEA301] text-xs text-[#BEA301] px-2 rounded-xl"
+            >
+              FIRE
+            </p>
+            <div class="flex relative">
+              <div class="flex flex-col absolute -top-7 -left-17 items-center">
+                <p class="text-[#BEA301]">850 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/atk.png" alt="Attack" />
+                </div>
+              </div>
+              <p class="text-xs text-[#BEA301] pt-5 scale-87">
+                "<span class="text-white">Comet-born firebringer</span>"
+              </p>
+              <div class="flex flex-col absolute -top-7 -right-17 items-center">
+                <p class="text-[#BEA301]">1200 Pt</p>
+                <div
+                  class="border border-[#BEA301] rounded-full w-14 h-14 -mt-1"
+                >
+                  <img class="scale-60" src="images/def.png" alt="Defense" />
+                </div>
+              </div>
+            </div>
+            <img
+              class="absolute scale-74 -top-10 -left-2"
+              src="images/infernal-herald.png"
+              alt="infernal herald"
+            />
+            <hr
+              class="absolute border border-[#9B8400] w-74 border-solid bottom-39.5"
+            />
           </div>
         </div>
       </div>
@@ -678,12 +844,24 @@
 
       function showSlide(index) {
         // Remove active class from all slides and dots
-        slides.forEach((slide) => slide.classList.remove("active"));
-        dots.forEach((dot) => dot.classList.remove("active"));
+        slides.forEach((slide) => {
+          slide.classList.remove("opacity-100", "z-10");
+          slide.classList.add("opacity-0", "z-0");
+        });
+
+        dots.forEach((dot) => {
+          dot.style.background = "rgba(212, 175, 55, 0.3)";
+          dot.style.transform = "scale(1)";
+          dot.style.boxShadow = "none";
+        });
 
         // Add active class to current slide and dot
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
+        slides[index].classList.remove("opacity-0", "z-0");
+        slides[index].classList.add("opacity-100", "z-10");
+
+        dots[index].style.background = "#d4af37";
+        dots[index].style.transform = "scale(1.2)";
+        dots[index].style.boxShadow = "0 0 15px rgba(212, 175, 55, 0.8)";
       }
 
       function nextSlide() {
@@ -707,15 +885,38 @@
           stopSlider();
           startSlider(); // Restart the timer
         });
+
+        dot.addEventListener("mouseenter", () => {
+          if (!dot.style.background.includes("#d4af37")) {
+            dot.style.background = "rgba(212, 175, 55, 0.6)";
+          }
+        });
+
+        dot.addEventListener("mouseleave", () => {
+          if (!dot.style.background.includes("#d4af37")) {
+            dot.style.background = "rgba(212, 175, 55, 0.3)";
+          }
+        });
       });
 
       // Start the slider on page load
+      showSlide(currentSlide);
       startSlider();
 
       // Pause slider on hover
-      const sliderContainer = document.querySelector(".slider-container");
+      const sliderContainer = document.querySelector(".max-w-\\[1200px\\]");
       sliderContainer.addEventListener("mouseenter", stopSlider);
       sliderContainer.addEventListener("mouseleave", startSlider);
+
+      // Button hover effects
+      const heroButton = document.querySelector("button");
+      heroButton.addEventListener("mouseenter", function () {
+        this.style.boxShadow = "0 6px 30px rgba(212, 175, 55, 0.5)";
+      });
+
+      heroButton.addEventListener("mouseleave", function () {
+        this.style.boxShadow = "0 4px 20px rgba(212, 175, 55, 0.3)";
+      });
     </script>
   </body>
 </html>
